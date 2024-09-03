@@ -1,0 +1,122 @@
+@import 'styles/colors.scss';
+
+
+
+.containerTable {
+  width: 100%;
+  max-height: 500px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 0 20px 20px 0;
+  }
+  &::-webkit-scrollbar-track {
+    background: $darkgray;
+    border-radius: 0 20px 20px 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $darkgray;
+    border-radius: 0 20px 20px 0;
+  }
+
+  table {
+    width: 100%;
+    height: auto;
+    border-collapse: collapse;
+    background-color: $white;
+    overflow: hidden;
+    thead {
+      border: 1px solid $lightred;
+      background-color: $lightred;
+      color: black;
+
+      .whiteSpace{
+        padding: 0;
+        height: 10px;
+        background-color: white;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+      }
+
+      th {
+        border: 1px solid $lightred;
+        padding: 10px;
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+
+    th, td {
+      font-size: 1.4rem;
+      border-top: none;
+      padding: 10px;
+      text-align: left;
+    }
+    tbody {
+      tr{
+        td{
+          border: 1px solid $darkred;
+          &.active{
+            color: green;
+          }
+          &.inactive{
+            color: red;
+          }
+        }
+      }
+      .actions{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .action{
+          display: flex;
+          align-items: center;
+          border: none;
+          cursor: pointer;
+          background-color: transparent;
+          transition: all 0.1s ease-out;
+          &:hover{
+            background-color: transparent;
+            box-shadow: none;
+            color: $lightred;
+          }
+        }
+      }
+      .containerColor{
+        appearance: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        input[type="color"]{
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+          &::-webkit-color-swatch {
+            border: none;
+          }
+        }
+      }
+    }
+
+    th {
+      background-color: $lightred;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    td {
+      text-align: center;
+
+      &.estado-activo {
+        color: green;
+      }
+
+      &.estado-inactivo {
+        color: red;
+      }
+    }
+  }
+}
