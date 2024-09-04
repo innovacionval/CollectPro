@@ -17,7 +17,7 @@ export const Navbar = () =>{
       <div className={
         styles.containerUser
       }>
-        <button onClick={handleOpenMenu}>Usuario</button>
+        <button onClick={handleOpenMenu}>Usuario
         <div className={
           `${styles.containerMenu} ${
             openMenu ? styles.active : ''
@@ -27,6 +27,8 @@ export const Navbar = () =>{
             Cerrar Sesión
             </button>
         </div>
+        </button>
+        
       </div>
     </div>
   )

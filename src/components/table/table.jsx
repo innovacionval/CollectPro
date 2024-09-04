@@ -1,5 +1,6 @@
 
 import styles from './table.module.scss'
+import { Switch } from 'components/switch/Swtich';
 
 export const Table = ({labels, data, actions}) => {
   const labelNames = new Set(labels.map(label => label.name));
@@ -56,9 +57,9 @@ export const Table = ({labels, data, actions}) => {
                   <div className={styles.actions}>
                   {
                     actions.map((action, index) => {
-                     /*  if (action.name === 'switch') {
+                      if (action.name === 'switch') {
                         return <Switch key={`${index} + $`} isOn={item.statusUser || item.status || item.active  || item.status =="Vigente"} handleToggle={() => action.action(item.id)} id={item.id} />;
-                      } */
+                      }
                       return (
                         <button className={styles.action} key={index} onClick={() => action.action(item.id)}>
                           {action.icon}
