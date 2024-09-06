@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Table } from "../../components/table/table";
 import styles from "./groups.module.scss";
-import { FaSearch } from "react-icons/fa";
+import { FaRegEye, FaSearch } from "react-icons/fa";
 import { Pagination } from "../../components/pagination/Pagination";
 import { useNavigate } from "react-router-dom";
 import { ModalGroups } from "../../components/groups/modal/modal";
+import { FiEdit } from "react-icons/fi";
+import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 
 export const Groups = () => {
   const [search, setSearch] = useState("");
@@ -110,18 +112,19 @@ export const Groups = () => {
   const actions = [
     {
       name: "watch",
-      icon: "Ver",
+      icon: <FaRegEye />      ,
       action: (id) => console.log("Ver", id),
     },
     {
       name: "edit",
-      icon: "Editar",
+      icon: <FiEdit />      ,
       action: (id) => console.log("Editar", id),
     },
     {
       name: "units",
-      icon: "unidades",
-      action: (id) => navigate("/units"),
+      icon: <HiOutlineBuildingOffice2 />
+      ,
+      action: (id) => navigate(`/units/${id}`),
     },
   ];
   const handleOpen = () => {

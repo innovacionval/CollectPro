@@ -8,17 +8,17 @@
   overflow: auto;
 
   &::-webkit-scrollbar {
-    width: 10px;
-    border-radius: 0 20px 20px 0;
+    width: 5px;
+    border-radius: 20px;
   }
   &::-webkit-scrollbar-track {
     background: $darkgray;
-    border-radius: 0 20px 20px 0;
+    border-radius: 20px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $darkgray;
-    border-radius: 0 20px 20px 0;
+    background: $darkred;
+    border-radius: 20px;
   }
 
   table {
@@ -77,10 +77,11 @@
           cursor: pointer;
           background-color: transparent;
           transition: all 0.1s ease-out;
+          font-size: larger;
           &:hover{
             background-color: transparent;
             box-shadow: none;
-            color: $lightred;
+            color: $mediumred;
           }
         }
       }
