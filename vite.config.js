@@ -26,7 +26,7 @@ export default defineConfig(({ command }) => {
     base: "/",
   };
   if (command != "serve") {
-    config.base = "/CollectPro";
+    config.base = "/CollectPro/";
   }
   return config;
 });
