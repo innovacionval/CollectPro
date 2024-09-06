@@ -14,7 +14,7 @@ function App() {
 
   const { isLogged } = useContext(AuthContext)
   
-  
+  console.log(import.meta.env.DEV)
     return (
       <BrowserRouter basename={import.meta.env.DEV ? '/' : '/CollectPro/'}>
         <Routes>
