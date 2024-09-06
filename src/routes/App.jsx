@@ -8,6 +8,7 @@ import { Users } from '../pages/users/users';
 import { Import } from '../pages/import/import';
 import {Management} from '../pages/management/management';
 import { Unit } from '../pages/unit/unit';
+import { DetailUnit } from '../pages/detailUnit/detailUnit';
 
 function App() {
 
@@ -20,10 +21,11 @@ function App() {
           {isLogged ? (
             <Route path="/" element={<Layout />}>
               <Route path='/' element={<Groups/>} />
-              <Route path="/units" element={<Unit/>} />
+              <Route path="/units/:id" element={<Unit/>} />
               <Route path="/users" element={<Users/>} />
               <Route path="/import" element={<Import/>}/>
               <Route path="/management" element={<Management/>}/>
+              <Route path="/detail/:id" element={<DetailUnit/>}/>
             </Route>
           ) : (
             <Route path="/*" element={<Login />} />

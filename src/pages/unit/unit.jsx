@@ -1,9 +1,10 @@
 import styles from './unit.module.scss'
 import { useNavigate } from 'react-router-dom';
-import { FaSearch } from 'react-icons/fa';
+import { FaRegEye, FaSearch } from 'react-icons/fa';
 import { Table } from '../../components/table/table';
 import { Pagination } from '../../components/pagination/Pagination';
 import { useState } from 'react';
+import { FiEdit } from 'react-icons/fi';
 
 export const Unit = () => {
   const [search, setSearch] = useState("");
@@ -61,13 +62,8 @@ export const Unit = () => {
   const actions = [
     {
       name: "watch",
-      icon: "ver",
-      action: (id) => console.log("ver", id),
-    },
-    {
-      name: "edit",
-      icon: "Editar",
-      action: (id) => console.log("Editar", id),
+      icon: <FaRegEye /> ,
+      action: (id) => navigate(`/detail/${id}`),
     },
   ];
   const handleOpen = () => {
