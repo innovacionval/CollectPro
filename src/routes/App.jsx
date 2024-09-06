@@ -16,7 +16,7 @@ function App() {
   
   
     return (
-      <BrowserRouter basename={import.meta.env.DEV ? '/' : '/ConsolaFaysu_Front/'}>
+      <BrowserRouter basename={import.meta.env.DEV ? '/' : '/CollectPro/'}>
         <Routes>
           {isLogged ? (
             <Route path="/" element={<Layout />}>
