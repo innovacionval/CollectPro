@@ -1,0 +1,80 @@
+@import 'styles/colors.scss';
+
+.containerBinnacle{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+
+  .containerBar{
+    display: grid;
+    grid-template-columns: 1fr 500px;
+    width: 100%;
+
+    .containerGestion{
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 50px;
+      select, textarea{
+        border: 2px solid $lighgray;
+        border-radius: 20px;
+      }
+      textarea{
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        resize: none;
+      }
+      label{
+        background-color: $lighgray;
+        white-space: nowrap;
+        color: black;
+        border-radius: 50px;
+        border: none;
+        padding: 10px 20px;
+        width: min-content;
+        height: min-content;
+      }
+      .gestion{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        color: black;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-size: larger;
+        .inputGestion{
+          display: flex;
+          gap: 20px;
+        }
+        button{
+          background-color: $darkred;
+          color: white;
+          border-radius: 50px;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+        }
+      }
+      .note{
+        display: flex;
+        gap: 20px;
+        color: black;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-size: larger;
+      }
+    }
+  }
+
+}

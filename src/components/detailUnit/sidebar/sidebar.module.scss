@@ -1,0 +1,218 @@
+@import 'styles/colors.scss';
+
+.basicInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: $lighgray;
+  width: 300px;
+  height: 100%;
+  padding: 20px;
+  gap: 10px;
+  box-sizing: border-box;
+  .firstCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-color: $mediumred;
+    color: white;
+    width: min(100%, 400px);
+    padding: 20px;
+    box-sizing: border-box;
+
+    h4{
+      font-weight: 400;
+    }
+
+    .status{
+      background-color: white;
+      color: black;
+      border-radius: 50px;
+      padding: 5px 10px;
+    }
+  }
+  .secondCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-color: $darkred;
+    color: white;
+    width: min(100%, 400px);
+    border: 1px solid $darkred;
+
+    h4{
+      font-weight: 400;
+    }
+
+    .identification{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      padding: 0 0 0 10px;
+      box-sizing: border-box;
+
+      h4{
+        font-weight: 700;
+      }
+
+      span{
+        background-color: $lighgray;
+        color: black;
+        padding: 5px 10px;
+        width: 100%;
+        text-align: center;
+        min-width: 80px;
+        box-sizing: border-box;
+        border-bottom: 1px solid $darkred;
+      }
+    }
+    .email{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 5px;
+
+      h4{
+        font-weight: 700;
+      }
+      span{
+        background-color: $lighgray;
+        color: black;
+        width: 100%;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        text-align: center;
+        border-bottom: 1px solid $lightred;
+      }
+    }
+
+  }
+  .thirdCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $lighgray;
+    color: white;
+    width: min(100%, 400px);
+    box-sizing: border-box;
+    border: 1px solid $darkred;
+
+    .title{
+      display: flex;
+      justify-content: center;
+      background-color: $darkred;
+      color: white;
+      width: 100%;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      font-weight: 400;
+    }
+    .totalDebt{
+      width: 100%;
+      text-align: center;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      color: black;
+    }
+    .defaultDays{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      color: black;
+      background-color: $mediumred;
+      span{
+        font-size: 0.9rem;
+      }
+    }
+
+    .rowOne{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      box-sizing: border-box;
+      border-bottom: 1px solid $darkred;
+      background-color: $lighgray;
+      color: black;
+      .value{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        gap: 5px;
+        padding: 10px;
+        box-sizing: border-box;
+
+        &:first-child{
+          border-right: 1px solid $darkred;
+        }
+        span{
+          font-size:  0.9rem;
+        }
+      }
+    }
+    .rowTwo{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      color: black;
+      border-bottom: 1px solid $darkred;
+
+      span{
+        font-size:  0.9rem;
+      }
+    }
+    .rowThree{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      color: black;
+      border-bottom: 1px solid $darkred;
+
+      span{
+        font-size:  0.9rem;
+      }
+    }
+  }
+  .containerBtns{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    .btn{
+      background-color: $lighgray;
+      color: black;
+      border: none;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      padding: 10px 20px;
+      width: 280px;
+      cursor: pointer;
+      font-size: larger;
+
+    }
+    .active{
+      background-color: white;
+    }
+
+  }
+}
