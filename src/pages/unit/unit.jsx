@@ -1,10 +1,9 @@
 import styles from './unit.module.scss'
 import { useNavigate } from 'react-router-dom';
-import { FaRegEye, FaSearch } from 'react-icons/fa';
+import { FaArrowLeft, FaRegEye, FaSearch } from 'react-icons/fa';
 import { Table } from '../../components/table/table';
 import { Pagination } from '../../components/pagination/Pagination';
 import { useState } from 'react';
-import { FiEdit } from 'react-icons/fi';
 
 export const Unit = () => {
   const [search, setSearch] = useState("");
@@ -72,6 +71,9 @@ export const Unit = () => {
   return (
     <>
       <div className={styles.container}>
+        <div className={styles.containerBack} onClick={() => navigate("/")}>
+          <FaArrowLeft />
+        </div>
         <div className={styles.containerHeader}>
           <form className={styles.containerInput}>
             <input

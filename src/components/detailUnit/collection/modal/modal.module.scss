@@ -61,12 +61,31 @@
                 padding: 10px;
                 border: 1px solid $darkgray;
                 border-radius: 20px;
+                &.observation{
+                    grid-column: span 4;
+                }
             }
-
-            
+            &.observation{
+              grid-column: span 4;
+            }
         }
 
 
+      }
+      .containerButtonForm{
+          display: flex;
+          width: 100%;
+          justify-content: flex-start;
+          gap: 20px;
+
+          button{
+              background-color: $mediumred;
+              color: white;
+              border: none;
+              border-radius: 20px;
+              padding: 10px 15px;
+              cursor: pointer;
+          }
       }
       .containerButton{
           display: flex;

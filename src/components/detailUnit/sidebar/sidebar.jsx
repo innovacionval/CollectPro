@@ -1,7 +1,14 @@
+import { FaArrowLeft } from 'react-icons/fa'
 import styles from './sidebar.module.scss'
+import { useNavigate, useParams } from 'react-router-dom'
 export const Sidebar = ({sections, setSections}) => {
+  const {id} = useParams()
+  const navigate = useNavigate()
   return (
     <div  className={styles.basicInfo}>
+      <div className={styles.containerBack} onClick={() => navigate(`/units/${id}`)}>
+          <FaArrowLeft />
+        </div>
         <div className={styles.firstCard}>
           <h4>CONJUNTO RESIDENCIAL IRIS PH</h4>
           <p>Torre 3 - Apto 101</p>
