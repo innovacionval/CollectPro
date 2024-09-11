@@ -10,6 +10,17 @@
     padding: 2.5rem;
     box-sizing: border-box;
 
+    .containerBack{
+      display: flex;
+      justify-content: start;
+      width: 100%;
+      svg{
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: $darkgray;
+      }
+    }
+
     h2{
       text-align: start;
       width: 100%;
@@ -92,23 +103,6 @@
               }
             }
           }
-        }
-      }
-      .containerBack{
-        display: flex;
-        align-items: center;
-        justify-content: end;
-        width: 100%;
-        .backbtn{
-          display: flex;
-          align-items: center;
-          gap: 5px;
-          background-color: $darkgray;
-          color: white;
-          border: none;
-          border-radius: 15px;
-          padding: 5px 10px;
-          cursor: pointer;
         }
       }
 }

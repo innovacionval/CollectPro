@@ -3,9 +3,11 @@ import styles from './navbar.module.scss'
 import imgNavbar from '@/assets/images/Logo_barra_navegación.png'
 import { AuthContext } from '../../contexts/AuthContext'
 import { ImExit } from 'react-icons/im'
+import { useNavigate } from 'react-router-dom'
 export const Navbar = () =>{
   const [openMenu, setOpenMenu] = useState(false)
   const {logout} = useContext(AuthContext)
+  const navigate = useNavigate()
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu)
   }
@@ -14,7 +16,7 @@ export const Navbar = () =>{
   }
   return (
     <div className={styles.container}>
-      <img src={imgNavbar} alt="LogoNavbar" />
+      <img onClick={() => navigate("/")} src={imgNavbar} alt="LogoNavbar" />
       <div className={
         styles.containerUser
       }>

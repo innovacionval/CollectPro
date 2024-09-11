@@ -1,5 +1,9 @@
+import { useState } from "react";
 import styles from "./collection.module.scss";
+import { ModalCollection } from "./modal/modal";
 export const Collection = () => {
+  const [openModal, setOpenModal] = useState(false);
+
   const labels = [
     "Pago",
     "Fecha",
@@ -27,7 +31,7 @@ export const Collection = () => {
     <div className={styles.containerCollection}>
       <div className={styles.containerBtns}>
         <button>Asignar responsable de cartera</button>
-        <button>Nuevo</button>
+        <button onClick={() => setOpenModal(true)}>Nuevo</button>
       </div>
       <div className={styles.containerTable}>
         <h3>Pagos Recibidos</h3>
@@ -63,6 +67,7 @@ export const Collection = () => {
           <p>$ 0</p>
         </div>
       </div>
+      {openModal && <ModalCollection setOpen={setOpenModal}/>}
     </div>
   );
 };
