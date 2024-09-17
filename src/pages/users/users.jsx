@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import { Table } from '../../components/table/table';
 import { Pagination } from '../../components/pagination/Pagination';
+import { FiEdit } from 'react-icons/fi';
 
 export const Users = () => {
   const [search, setSearch] = useState("");
@@ -79,7 +80,7 @@ export const Users = () => {
     },
     {
       name: "edit",
-      icon: "Editar",
+      icon: <FiEdit />,
       action: (id) => console.log("Editar", id),
     },
   ];

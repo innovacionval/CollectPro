@@ -99,8 +99,8 @@
       background-color: $darkred;
       box-sizing: border-box;
       color: white;
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.4em;
+      font-weight: 400;
     }
     .void{
       border: 1px solid $lighgray;
@@ -111,7 +111,7 @@
       border: 2px solid $lighgray;
       padding: 5px 10px;
       box-sizing: border-box;
-      font-size: 1em;
+      font-size: 1rem;
       font-weight: 400;
       &:nth-child(15){
         background-color: $yellow;
