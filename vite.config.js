@@ -23,7 +23,7 @@ export default defineConfig(({ command }) => {
       },
     },
     plugins: [react()],
-    base: process.env.NODE_ENV == 'production' ? '/CollectPro/' : '/'
+    base: command !== 'serve' ? '/CollectPro/' : '/', // Asegúrate de cambiar "CollectPro" por el nombre correcto de tu repositorio
   };
   if (command != "serve") {
     config.base = "/CollectPro/";
