@@ -9,6 +9,7 @@ import { Import } from '../pages/import/import';
 import {Management} from '../pages/management/management';
 import { Unit } from '../pages/unit/unit';
 import { DetailUnit } from '../pages/detailUnit/detailUnit';
+import { AdminConcept } from '@/pages/adminConcept/adminConcept';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
               <Route path="/import" element={<Import/>}/>
               <Route path="/management" element={<Management/>}/>
               <Route path="/detail/:id" element={<DetailUnit/>}/>
+              <Route path="/adminConcept" element={<AdminConcept/>}/>
             </Route>
           ) : (
             <Route path="/*" element={<Login />} />
