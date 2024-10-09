@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import styles from "./modal.module.scss";
 import { FaPlus, FaRegEdit } from "react-icons/fa";
-import { IoIosClose, IoMdClose } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
+import { convertCurrency } from "../../../utils/dataConfig";
 
 import { useState } from "react";
 
@@ -152,14 +153,20 @@ export const ModalGroups = ({ open, setOpen }) => {
     {
       label: "Dias de mora",
       name: "days",
+      placeholder1: "Valor mínimo",
+      placeholder2: "Valor máximo"
     },
     {
       label: "Honorarios(%)",
       name: "honorarium",
+      placeholder1: "%",
+      placeholder2: "%"
     },
     {
       label: "IVA honorarios (%)",
       name: "honorariumIva",
+      placeholder1: "%",
+      placeholder2: "%"
     }
 
   ]
@@ -251,7 +258,7 @@ export const ModalGroups = ({ open, setOpen }) => {
               {adminValueData.map((data, index) => (
                 <div key={index} className={styles.adminValue}>
                   <p>{data.administrator}</p>
-                  <p>$ {data.value}</p>
+                  <p>{convertCurrency(data.value)}</p>
                   <div className={styles.actions}>
                     <FaRegEdit />
                     <IoMdClose />
@@ -268,9 +275,22 @@ export const ModalGroups = ({ open, setOpen }) => {
                   <div key={index} className={styles.containerInput}>
                     <label htmlFor={label.name}>{label.label}</label>
                     <input
-                      {...register(label.name)}
+                      {...register(`${label.name}1`)}
                       type="number"
                       id={label.name}
+                      placeholder={label.placeholder1}
+                    />
+                  </div>
+                ))
+              }
+              {
+                labelHonorarium.map((label, index) => (
+                  <div key={index} className={styles.containerInput}>
+                    <input
+                      {...register(`${label.name}2`)}
+                      type="number"
+                      id={label.name}
+                      placeholder={label.placeholder2}
                     />
                   </div>
                 ))

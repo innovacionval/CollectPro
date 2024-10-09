@@ -103,6 +103,7 @@ export const Simulator = () => {
               <td className={styles.actions}>
                 <p>Eliminar</p>
                 <p>Editar</p>
+                <p>Imprimir</p>
               </td>
             </tr>
           </tbody>

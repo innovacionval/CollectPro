@@ -107,10 +107,6 @@ export const ModalCollection = ({ setOpen }) => {
             </div>
           ))}
         </form>
-        <div className={styles.containerButtonForm}>
-          <button>Agregar Gasto/Ingreso +</button>
-          <button>Agregar Cuenta Cobrar/Pagar +</button>
-        </div>
         <div className={styles.containerButton}>
           <button type="button" onClick={() => setOpen(false)}>
             Cancelar

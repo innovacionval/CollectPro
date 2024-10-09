@@ -103,7 +103,7 @@
       font-weight: 400;
     }
     .void{
-      border: 1px solid $lighgray;
+      border: 2px solid $lighgray;
     }
     h3{
       display: flex;
@@ -113,9 +113,6 @@
       box-sizing: border-box;
       font-size: 1rem;
       font-weight: 400;
-      &:nth-child(15){
-        background-color: $yellow;
-      }
     }
     .date{
       display: flex;

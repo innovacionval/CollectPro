@@ -1,53 +1,24 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from './users.module.scss'
-import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import { Table } from '../../components/table/table';
 import { Pagination } from '../../components/pagination/Pagination';
 import { FiEdit } from 'react-icons/fi';
+import { labelsUser } from '@/utils/dataConfig';
+import { ButtonPages } from '@/components/shared/buttonPages';
 
 export const Users = () => {
   const [search, setSearch] = useState("");
   const [pagination, setPagination] = useState(null);
-  const [openMenu, setOpenMenu] = useState(false);
   const [page, setPage] = useState(1);
-  const [openModal, setOpenModal] = useState(false);
-  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
-  const handleOpenModal = () => {
-    setOpenModal(!openModal);
-  };
 
-  const labels = [
-    {
-      name: "name",
-      label: "Nombre",
-    },
-    {
-      name: "identification",
-      label: "Identificación",
-    },
-    {
-      name: "email",
-      label: "Correo",
-    },
-    {
-      name: "rol",
-      label: "Rol",
-    },
-    {
-      name: "status",
-      label: "Estado",
-    },
-    {
-      name: "actions",
-      label: "Acciones",
-    },
-  ];
+  const labels = labelsUser
 
   const data = [
     {
@@ -84,9 +55,6 @@ export const Users = () => {
       action: (id) => console.log("Editar", id),
     },
   ];
-  const handleOpen = () => {
-    setOpenMenu(!openMenu);
-  };
   return (
     <>
       <div className={styles.container}>
@@ -103,33 +71,7 @@ export const Users = () => {
               <FaSearch />
             </button>
           </form>
-          <div className={styles.containerButton}>
-            <button onClick={handleOpen} className={styles.btnConfig}>
-              Configuración
-              <div
-                className={`${styles.containerMenu} ${
-                  openMenu ? styles.active : ""
-                }`}
-              >
-                <button onClick={() => navigate("/users")}>
-                  Usuarios / Perfiles
-                </button>
-                <button onClick={() => navigate("/")}>Agrupaciones</button>
-                <button onClick={() => navigate("/import")}>
-                  Importadores
-                </button>
-                <button onClick={() => navigate("/management")}>
-                  Tipos de gestión
-                </button>
-              </div>
-            </button>
-            <button onClick={() => {}} className={styles.button}>
-              Informes
-            </button>
-            <button onClick={handleOpenModal} className={styles.button}>
-              Crear
-            </button>
-          </div>
+          <ButtonPages styles={styles} />
         </div>
         <h2>Usuarios / Perfiles</h2>
         <Table labels={labels} data={data} actions={actions} />

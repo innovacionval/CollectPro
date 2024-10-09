@@ -7,11 +7,12 @@ import { useNavigate } from "react-router-dom";
 import { ModalGroups } from "../../components/groups/modal/modal";
 import { FiEdit } from "react-icons/fi";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { labelsGroup } from "@/utils/dataConfig";
+import { ButtonPages } from "@/components/shared/buttonPages";
 
 export const Groups = () => {
   const [search, setSearch] = useState("");
   const [pagination, setPagination] = useState(null);
-  const [openMenu, setOpenMenu] = useState(false);
   const [page, setPage] = useState(1);
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
@@ -20,32 +21,9 @@ export const Groups = () => {
     setSearch(e.target.value);
   };
 
-  const handleOpenModal = () => {
-    setOpenModal(!openModal);
-  };
 
-  const labels = [
-    {
-      name: "id",
-      label: "Identificación",
-    },
-    {
-      name: "group",
-      label: "Agrupación",
-    },
-    {
-      name: "city",
-      label: "Ciudad",
-    },
-    {
-      name: "location",
-      label: "Localidad",
-    },
-    {
-      name: "actions",
-      label: "Acciones",
-    },
-  ];
+
+  const labels = labelsGroup
 
   const data = [
     {
@@ -127,9 +105,7 @@ export const Groups = () => {
       action: (id) => navigate(`/units/${id}`),
     },
   ];
-  const handleOpen = () => {
-    setOpenMenu(!openMenu);
-  };
+
 
   return (
     <>
@@ -147,36 +123,7 @@ export const Groups = () => {
               <FaSearch />
             </button>
           </form>
-          <div className={styles.containerButton}>
-            <button onClick={handleOpen} className={styles.btnConfig}>
-              Configuración
-              <div
-                className={`${styles.containerMenu} ${
-                  openMenu ? styles.active : ""
-                }`}
-              >
-                <button onClick={() => navigate("/users")}>
-                  Usuarios / Perfiles
-                </button>
-                <button onClick={() => navigate("/")}>Agrupaciones</button>
-                <button onClick={() => navigate("/import")}>
-                  Importadores
-                </button>
-                <button onClick={() => navigate("/management")}>
-                  Tipos de gestión
-                </button>
-                <button onClick={() => navigate("/adminConcept")}>
-                  Conceptos de Administración
-                </button>
-              </div>
-            </button>
-            <button onClick={() => {}} className={styles.button}>
-              Informes
-            </button>
-            <button onClick={handleOpenModal} className={styles.button}>
-              Crear
-            </button>
-          </div>
+          <ButtonPages styles={styles} />
         </div>
         <h2>Agrupaciones</h2>
         <Table labels={labels} data={data} actions={actions} />

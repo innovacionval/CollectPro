@@ -30,7 +30,6 @@ export const Collection = () => {
   return (
     <div className={styles.containerCollection}>
       <div className={styles.containerBtns}>
-        <button>Asignar responsable de cartera</button>
         <button onClick={() => setOpenModal(true)}>Nuevo</button>
       </div>
       <div className={styles.containerTable}>

@@ -3,11 +3,15 @@ import styles from './detailContent.module.scss'
 export const DetailContent = () => {
   const labelTable = ['Días Mora', 'Concepto', 'Total', 'Dtos Aplicables', 'Total (Con Descuento)', 'Capital', 'Interés Mora', 'Honorarios']
   const dataTable = ['0', 'Cuota administración', '$ 0', '$ 0', '$ 0', '$ 0', '$ 0', '$ 0']
+
+  const handlePrint = () => {
+    window.print()
+  }
   return (
     <div className={styles.mainInfo}>
         <div className={styles.containerBar}>
           <h3>Ajustes</h3>
-          <button className={styles.barBtn}>
+          <button onClick={handlePrint} className={styles.barBtn}>
             Imprimir
             <FiPrinter/>
           </button>

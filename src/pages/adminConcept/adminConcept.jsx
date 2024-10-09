@@ -1,19 +1,18 @@
 import { useState } from 'react'
 import styles from './adminConcept.module.scss'
-import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import { Table } from '../../components/table/table';
 import { Pagination } from '../../components/pagination/Pagination';
 import { FiEdit } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
+import { labelsAdmin } from '@/utils/dataConfig';
+import { ButtonPages } from '@/components/shared/buttonPages';
 
 export const AdminConcept = () => {
   const [search, setSearch] = useState("");
   const [pagination, setPagination] = useState(null);
-  const [openMenu, setOpenMenu] = useState(false);
   const [page, setPage] = useState(1);
   const [openModal, setOpenModal] = useState(false);
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -23,16 +22,7 @@ export const AdminConcept = () => {
     setOpenModal(!openModal);
   };
 
-  const labels = [
-    {
-      name: "name",
-      label: "Nombre",
-    },
-    {
-      name: "actions",
-      label: "Acciones",
-    },
-  ];
+  const labels = labelsAdmin
 
   const data = [
     {
@@ -54,9 +44,7 @@ export const AdminConcept = () => {
       action: (id) => console.log("Eliminar", id),
     },
   ];
-  const handleOpen = () => {
-    setOpenMenu(!openMenu);
-  };
+
   return (
     <>
       <div className={styles.container}>
@@ -73,36 +61,7 @@ export const AdminConcept = () => {
               <FaSearch />
             </button>
           </form>
-          <div className={styles.containerButton}>
-            <button onClick={handleOpen} className={styles.btnConfig}>
-              Configuración
-              <div
-                className={`${styles.containerMenu} ${
-                  openMenu ? styles.active : ""
-                }`}
-              >
-                <button onClick={() => navigate("/users")}>
-                  Usuarios / Perfiles
-                </button>
-                <button onClick={() => navigate("/adminConcept")}>
-                  Conceptos de Administración
-                </button>
-                <button onClick={() => navigate("/")}>Agrupaciones</button>
-                <button onClick={() => navigate("/import")}>
-                  Importadores
-                </button>
-                <button onClick={() => navigate("/management")}>
-                  Tipos de gestión
-                </button>
-              </div>
-            </button>
-            <button onClick={() => {}} className={styles.button}>
-              Informes
-            </button>
-            <button onClick={handleOpenModal} className={styles.button}>
-              Crear
-            </button>
-          </div>
+          <ButtonPages styles={styles} />
         </div>
         <div className={styles.containerTitle}>
           <h2>Conceptos de Administración</h2>
