@@ -1,24 +1,21 @@
-import { useState } from 'react'
-import styles from './users.module.scss'
-import { FaSearch } from 'react-icons/fa';
-import { Table } from '../../components/table/table';
-import { Pagination } from '../../components/pagination/Pagination';
-import { FiEdit } from 'react-icons/fi';
-import { labelsUser } from '@/utils/dataConfig';
-import { ButtonPages } from '@/components/shared/buttonPages';
+import { useState } from "react";
+import styles from "./users.module.scss";
+import { FaSearch } from "react-icons/fa";
+import { Table } from "../../components/table/table";
+import { Pagination } from "../../components/pagination/Pagination";
+import { FiEdit } from "react-icons/fi";
+import { labelsUser } from "@/utils/dataConfig";
 
 export const Users = () => {
   const [search, setSearch] = useState("");
   const [pagination, setPagination] = useState(null);
   const [page, setPage] = useState(1);
 
-
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
-
-  const labels = labelsUser
+  const labels = labelsUser;
 
   const data = [
     {
@@ -71,7 +68,11 @@ export const Users = () => {
               <FaSearch />
             </button>
           </form>
-          <ButtonPages styles={styles} />
+          <div className={styles.containerButton}>
+            <button onClick={() => {}} className={styles.button}>
+              Nuevo
+            </button>
+          </div>
         </div>
         <h2>Usuarios / Perfiles</h2>
         <Table labels={labels} data={data} actions={actions} />
@@ -81,4 +82,4 @@ export const Users = () => {
       </div>
     </>
   );
-}
+};

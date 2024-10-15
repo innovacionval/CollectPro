@@ -61,6 +61,10 @@ export const labelsAdmin = [
     label: "Nombre",
   },
   {
+    name: "status",
+    label: "Estado",
+  },
+  {
     name: "actions",
     label: "Acciones",
   },
@@ -70,10 +74,6 @@ export const btnsConfig = (navigate) => [
   {
     name: "Usuarios / Perfiles",
     action: () => navigate("/users"),
-  },
-  {
-    name: "Agrupaciones",
-    action: () => navigate("/"),
   },
   {
     name: "Importadores",
@@ -89,7 +89,7 @@ export const btnsConfig = (navigate) => [
   },
   {
     name: "Acciones de cartera",
-    action: () => navigate("/wallet"),
+    action: () => navigate("/briefcase"),
   }
 
 ]

@@ -2,8 +2,7 @@ import { btnsConfig } from '@/utils/dataConfig';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-export const ButtonPages = ({styles}) => {
-  const [openModal, setOpenModal] = useState(false);
+export const ButtonPages = ({styles, setOpenModal, openModal}) => {
   const [openMenu, setOpenMenu] = useState(false);
   const navigate = useNavigate();
   const handleOpenModal = () => {

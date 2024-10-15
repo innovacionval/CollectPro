@@ -7,6 +7,7 @@ import { FiEdit } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
 import { labelsAdmin } from '@/utils/dataConfig';
 import { ButtonPages } from '@/components/shared/buttonPages';
+import { ModalAdminConcept } from '@/components/adminConcept/modal/modal';
 
 export const AdminConcept = () => {
   const [search, setSearch] = useState("");
@@ -27,9 +28,11 @@ export const AdminConcept = () => {
   const data = [
     {
       name: "Administración",
+      status: "Activo",
     },
     {
-      name: "Administración"
+      name: "Administración",
+      status: "Activo",
     }
   ];
   const actions = [
@@ -61,7 +64,7 @@ export const AdminConcept = () => {
               <FaSearch />
             </button>
           </form>
-          <ButtonPages styles={styles} />
+          <ButtonPages styles={styles} setOpenModal={setOpenModal} openModal={openModal} />
         </div>
         <div className={styles.containerTitle}>
           <h2>Conceptos de Administración</h2>
@@ -73,6 +76,9 @@ export const AdminConcept = () => {
         <div className={styles.pagination}>
           <Pagination total={pagination?.count} page={page} setPage={setPage} />
         </div>
+        {
+          openModal && <ModalAdminConcept open={openModal} setOpen={setOpenModal} />
+        }
       </div>
     </>
   );

@@ -10,6 +10,7 @@ import {Management} from '../pages/management/management';
 import { Unit } from '../pages/unit/unit';
 import { DetailUnit } from '../pages/detailUnit/detailUnit';
 import { AdminConcept } from '@/pages/adminConcept/adminConcept';
+import { BriefcaseAction } from '@/pages/briefcaseAction/briefcaseAction';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
               <Route path="/management" element={<Management/>}/>
               <Route path="/detail/:id" element={<DetailUnit/>}/>
               <Route path="/adminConcept" element={<AdminConcept/>}/>
+              <Route path='/briefcase' element={<BriefcaseAction/>} />
             </Route>
           ) : (
             <Route path="/*" element={<Login />} />

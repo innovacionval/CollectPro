@@ -1,0 +1,52 @@
+@import "styles/colors.scss";
+
+.container {
+  position: relative;
+  width: 100%;
+
+  .customClientSelect {
+    padding: 10px;
+    border: 1px solid $darkgray;
+    border-radius: 20px;
+    width: 100%;
+    background-color: white;
+  }
+
+  .containerOptions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-height: min-content;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    .options {
+      display: block;
+      text-align: start;
+      width: 100%;
+      padding: 10px;
+      border-radius: 0%;
+      margin: 10px 0;
+      background-color: white;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      &:hover {
+        background-color: #f5f5f5;
+        box-shadow: none;
+      }
+      label {
+        cursor: pointer;
+      }
+    }
+  }
+  #active {
+    background-color: $darkred;
+    label{
+      color: white;
+    }
+  }
+}

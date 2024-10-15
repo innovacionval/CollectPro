@@ -123,7 +123,7 @@ export const Groups = () => {
               <FaSearch />
             </button>
           </form>
-          <ButtonPages styles={styles} />
+          <ButtonPages styles={styles} setOpenModal={setOpenModal} openModal={openModal} />
         </div>
         <h2>Agrupaciones</h2>
         <Table labels={labels} data={data} actions={actions} />
