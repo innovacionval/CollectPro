@@ -32,30 +32,26 @@ export const Sidebar = ({sections, setSections}) => {
           </div>
         </div>
         <div className={styles.thirdCard}>
-          <h4 className={styles.title}>Valor total deuda (Descuento Aplicado)</h4>
+          <h4 className={styles.title}>Valor total deuda <br/> (Descuento Aplicado)</h4>
           <div className={styles.totalDebt}>
             <h3>$ 203.690</h3>
           </div>
           <div className={styles.defaultDays}>
             <span>Días mora (máximo): <strong>272</strong></span>
           </div>
-          <div className={styles.rowOne}>
-            <div className={styles.value}>
-              <strong>$ 0</strong>
-              <span>Capital (Din Dcto)</span>
-            </div>
-            <div className={styles.value}>
-              <strong>$ 0</strong>
-              <span>Intereses Mora</span>
-            </div>
+          <div className={styles.columnsInfo}>
+            <p>Capital(Sin Dcto)</p>
+            <span>$ 0</span>
+            <p>Interés Mora</p>
+            <span>$ 0</span>
+            <p>Honorarios</p>
+            <span>$ 0</span>
+            <p>DTO hasta</p>
+            <span>$ 0</span>
           </div>
-          <div className={styles.rowTwo}>
-            <strong>$ 0</strong>
-            <span> DTO hasta 31/12/2021</span>
-          </div>
-          <div className={styles.rowThree}>
-            <strong>$ 0</strong>
-            <span> Honorarios</span>
+          <div className={styles.responsible}>
+            <h4>Responsable Cartera</h4>
+            <p></p>
           </div>
         </div>
         <div className={styles.containerBtns}>

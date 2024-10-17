@@ -19,19 +19,19 @@ export const Simulator = () => {
           </div>
         </form>
         <div className={styles.tablePayment}>
-          <h3 className={styles.title}>Proyección Pagos</h3>
-          <h4>Abono a Honorarios</h4>
-          <h4>$ 0</h4>
-          <h4>Nuevo saldo Honorarios</h4>
-          <h4>$ 0</h4>
-          <h4>Abono a Capital</h4>
-          <h4>$ 0</h4>
-          <h4>Nuevo saldo Capital</h4>
-          <h4>$ 0</h4>
-          <h4>Total Abono</h4>
-          <h4>$ 0</h4>
-          <h4>Nuevo saldo total</h4>
-          <h4>$ 0</h4>
+          <h4 className={styles.title}>Proyección Pagos</h4>
+          <p>Abono a Honorarios</p>
+          <p>$ 0</p>
+          <p>Nuevo saldo Honorarios</p>
+          <p>$ 0</p>
+          <p>Abono a Capital</p>
+          <p>$ 0</p>
+          <p>Nuevo saldo Capital</p>
+          <p>$ 0</p>
+          <p>Total Abono</p>
+          <p>$ 0</p>
+          <p>Nuevo saldo total</p>
+          <p>$ 0</p>
         </div>
       </div>
       <div className={styles.containerRow2}>
@@ -93,6 +93,7 @@ export const Simulator = () => {
               <td className={styles.actions}>
                 <p>Eliminar</p>
                 <p>Editar</p>
+                <p>Imprimir</p>
               </td>
             </tr>
             <tr>

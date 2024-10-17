@@ -68,16 +68,14 @@
         border: 1px solid $lighgray;
         box-sizing: border-box;
       }
-      h3,h4{
+      h3,h4,p{
         display: flex;
         align-items: center;
         border: 1px solid $lighgray;
         padding:  10px;
         box-sizing: border-box;
       }
-      h4{
-        font-size: 1.4em;
-        font-weight: 400;
+      p{
         &:nth-child(10), &:nth-child(12){
           background-color: $darkred;
           color: white;
@@ -99,7 +97,6 @@
       background-color: $darkred;
       box-sizing: border-box;
       color: white;
-      font-size: 1.4em;
       font-weight: 400;
     }
     .void{
