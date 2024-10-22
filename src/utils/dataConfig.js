@@ -28,6 +28,17 @@ export const labelsGroup = [
   },
 ];
 
+export const labelsBillingConcept = [
+  {
+    name: "name",
+    label: "Nombre",
+  },
+  {
+    name: "actions",
+    label: "Acciones",
+  }
+];
+
 export const labelsUser = [
   {
     name: "name",
@@ -86,6 +97,10 @@ export const btnsConfig = (navigate) => [
   {
     name: "Conceptos de Administración",
     action: () => navigate("/adminConcept"),
+  },
+  {
+    name: "Conceptos de cobro",
+    action: () => navigate("/billingConcept"),
   },
   {
     name: "Acciones de cartera",

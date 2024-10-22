@@ -5,9 +5,11 @@ import { Table } from "../../components/table/table";
 import { Pagination } from "../../components/pagination/Pagination";
 import { FiEdit } from "react-icons/fi";
 import { labelsUser } from "@/utils/dataConfig";
+import { ModalUser } from "@/components/user/modal/modal";
 
 export const Users = () => {
   const [search, setSearch] = useState("");
+  const [openModal, setOpenModal] = useState(false);
   const [pagination, setPagination] = useState(null);
   const [page, setPage] = useState(1);
 
@@ -69,7 +71,7 @@ export const Users = () => {
             </button>
           </form>
           <div className={styles.containerButton}>
-            <button onClick={() => {}} className={styles.button}>
+            <button onClick={() => setOpenModal(!openModal)} className={styles.button}>
               Nuevo
             </button>
           </div>
@@ -80,6 +82,7 @@ export const Users = () => {
           <Pagination total={pagination?.count} page={page} setPage={setPage} />
         </div>
       </div>
+      {openModal && <ModalUser setOpen={setOpenModal} />}
     </>
   );
 };

@@ -2,121 +2,18 @@ import { FaArrowLeft, FaFileDownload, FaFileExcel } from "react-icons/fa";
 import styles from "./briefcaseAction.module.scss";
 import { MultipleSelect } from "@/components/shared/multipleSelect/MultipleSelect";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const BriefcaseAction = () => {
   const [groups, setGroups] = useState([]);
   const [statusPaymentAgreement, setStatusPaymentAgreement] = useState([]);
+  const navigate = useNavigate();
 
-  const optionsStatusPaymentAgreement = [
-    {
-      label: "Administración",
-      value: 1,
-    },
-    {
-      label: "Bicicletero",
-      value: 2,
-    },
-    {
-      label: "Calderas",
-      value: 3,
-    },
-    {
-      label: "Cuota citofonía",
-      value: 4,
-    },
-    {
-      label: "Cuota extraordinaria administración",
-      value: 5,
-    },
-    {
-      label: "Cuota peritaje",
-      value: 6,
-    },
-    {
-      label: "Extraordinaria canales",
-      value: 7,
-    },
-    {
-      label: "Extraordinaria cancha",
-      value: 8,
-    },
-    {
-      label: "Extraordinaria CCTV",
-      value: 9,
-    },
-    {
-      label: "extraordinaria parqueadero",
-      value: 10,
-    },
-    {
-      label: "Extraordinaria portería",
-      value: 11,
-    },
-    {
-      label: "Extraordinaria shut ",
-      value: 12,
-    },
-    {
-      label: "Honorarios abogado",
-      value: 13,
-    },
-    {
-      label: "Inasistencia asamblea",
-      value: 14,
-    },
-    {
-      label: "Interes de administración",
-      value: 15,
-    },
-    {
-      label: "Intereses calderas",
-      value: 16,
-    },
-    {
-      label: "Intereses parqueadero",
-      value: 17,
-    },
-    {
-      label: "Multa convivencia",
-      value: 18,
-    },
-    {
-      label: "Parqueadero adicional",
-      value: 19,
-    },
-    {
-      label: "Parqueadero carro",
-      value: 20,
-    },
-    {
-      label: "Parqueadero moto",
-      value: 21,
-    },
-    {
-      label: "Retroactivo administración",
-      value: 22,
-    },
-    {
-      label: "Retroactivo Carro",
-      value: 23,
-    },
-    {
-      label: "Retroactivo Moto",
-      value: 24,
-    },
-    {
-      label: "Tarjetas",
-      value: 25,
-    },
-    {
-      label: "Uso zona común moto",
-      value: 26,
-    },
-    {
-      label: "Usufructo Local",
-      value: 27,
-    },
-  ];
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+ 
   const inputs = [
     {
       label: "Agrupación",
@@ -180,7 +77,7 @@ export const BriefcaseAction = () => {
   ];
   return (
     <div className={styles.container}>
-      <div className={styles.containerHeader}>
+      <div onClick={handleBack} className={styles.containerHeader}>
         <FaArrowLeft />
       </div>
       <div className={styles.containerSearch}>
@@ -191,7 +88,7 @@ export const BriefcaseAction = () => {
               {input.type === "select" ? (
                 <MultipleSelect
                   data={
-                    input.name == "group" ? [] : optionsStatusPaymentAgreement
+                    input.name == "group" ? [] : []
                   }
                   setClients={
                     input.name == "group"

@@ -64,17 +64,14 @@ export const Management = () => {
               <FaSearch />
             </button>
           </form>
-          <ButtonPages
-            styles={styles}
-            setOpenModal={setOpenModal}
-            openModal={openModal}
-          />
+          <div className={styles.containerButton}>
+            <button onClick={handleOpenModal} className={styles.button}>
+              Nuevo
+            </button>
+          </div>
         </div>
         <div className={styles.containerTitle}>
           <h2>Tipos de gestión</h2>
-          <button onClick={handleOpenModal} className={styles.button}>
-            {"Nuevo +"}
-          </button>
         </div>
         <Table labels={labels} data={data} actions={actions} />
         <div className={styles.pagination}>

@@ -11,6 +11,7 @@ import { Unit } from '../pages/unit/unit';
 import { DetailUnit } from '../pages/detailUnit/detailUnit';
 import { AdminConcept } from '@/pages/adminConcept/adminConcept';
 import { BriefcaseAction } from '@/pages/briefcaseAction/briefcaseAction';
+import { BillingConcept } from '@/pages/billingConcept/billingConcept';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
               <Route path="/detail/:id" element={<DetailUnit/>}/>
               <Route path="/adminConcept" element={<AdminConcept/>}/>
               <Route path='/briefcase' element={<BriefcaseAction/>} />
+              <Route path='/billingConcept' element={<BillingConcept/>} />
             </Route>
           ) : (
             <Route path="/*" element={<Login />} />
