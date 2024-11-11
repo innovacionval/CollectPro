@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import styles from './billingConcept.module.scss'
 import { labelsBillingConcept } from '@/utils/dataConfig';
-import { FaSearch } from 'react-icons/fa';
+import { FaArrowLeft, FaSearch } from 'react-icons/fa';
 import { FiEdit } from 'react-icons/fi';
 import { Table } from '@/components/table/table';
 import { Pagination } from '@/components/pagination/Pagination';
 import { ModalGroups } from '@/components/groups/modal/modal';
 import { IoMdClose } from 'react-icons/io';
 import { ModalBillingConcept } from '@/components/billingConcept/modal/modal';
+import { useNavigate } from 'react-router-dom';
 
 export const BillingConcept = () => {
   const [search, setSearch] = useState("");
   const [pagination, setPagination] = useState(null);
   const [page, setPage] = useState(1);
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -155,6 +157,9 @@ export const BillingConcept = () => {
   return (
     <>
       <div className={styles.container}>
+      <div className={styles.containerBack} onClick={() => navigate("/")}>
+          <FaArrowLeft />
+        </div>
         <div className={styles.containerHeader}>
           <form className={styles.containerInput}>
             <input

@@ -1,17 +1,19 @@
 import { useState } from "react";
 import styles from "./users.module.scss";
-import { FaSearch } from "react-icons/fa";
+import { FaArrowLeft, FaSearch } from "react-icons/fa";
 import { Table } from "../../components/table/table";
 import { Pagination } from "../../components/pagination/Pagination";
 import { FiEdit } from "react-icons/fi";
 import { labelsUser } from "@/utils/dataConfig";
 import { ModalUser } from "@/components/user/modal/modal";
+import { useNavigate } from "react-router-dom";
 
 export const Users = () => {
   const [search, setSearch] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const [pagination, setPagination] = useState(null);
   const [page, setPage] = useState(1);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -57,6 +59,9 @@ export const Users = () => {
   return (
     <>
       <div className={styles.container}>
+      <div className={styles.containerBack} onClick={() => navigate("/")}>
+          <FaArrowLeft />
+        </div>
         <div className={styles.containerHeader}>
           <form className={styles.containerInput}>
             <input

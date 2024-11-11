@@ -3,17 +3,19 @@ import { useState } from "react";
 import styles from "./management.module.scss";
 import { FiEdit } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
-import { FaSearch } from "react-icons/fa";
+import { FaArrowLeft, FaSearch } from "react-icons/fa";
 import { ButtonPages } from "@/components/shared/buttonPages";
 import { Table } from "@/components/table/table";
 import { Pagination } from "@/components/pagination/Pagination";
 import { ModalManagement } from "@/components/management/modal/modal";
+import { useNavigate } from "react-router-dom";
 
 export const Management = () => {
   const [search, setSearch] = useState("");
   const [pagination, setPagination] = useState(null);
   const [page, setPage] = useState(1);
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -51,6 +53,9 @@ export const Management = () => {
   return (
     <>
       <div className={styles.container}>
+      <div className={styles.containerBack} onClick={() => navigate("/")}>
+          <FaArrowLeft />
+        </div>
         <div className={styles.containerHeader}>
           <form className={styles.containerInput}>
             <input

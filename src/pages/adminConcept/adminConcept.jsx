@@ -1,19 +1,21 @@
-import { useState } from 'react'
-import styles from './adminConcept.module.scss'
-import { FaSearch } from 'react-icons/fa';
-import { Table } from '../../components/table/table';
-import { Pagination } from '../../components/pagination/Pagination';
-import { FiEdit } from 'react-icons/fi';
-import { IoMdClose } from 'react-icons/io';
-import { labelsAdmin } from '@/utils/dataConfig';
-import { ButtonPages } from '@/components/shared/buttonPages';
-import { ModalAdminConcept } from '@/components/adminConcept/modal/modal';
+import { useState } from "react";
+import styles from "./adminConcept.module.scss";
+import { FaArrowLeft, FaSearch } from "react-icons/fa";
+import { Table } from "../../components/table/table";
+import { Pagination } from "../../components/pagination/Pagination";
+import { FiEdit } from "react-icons/fi";
+import { IoMdClose } from "react-icons/io";
+import { labelsAdmin } from "@/utils/dataConfig";
+import { ButtonPages } from "@/components/shared/buttonPages";
+import { ModalAdminConcept } from "@/components/adminConcept/modal/modal";
+import { useNavigate } from "react-router-dom";
 
 export const AdminConcept = () => {
   const [search, setSearch] = useState("");
   const [pagination, setPagination] = useState(null);
   const [page, setPage] = useState(1);
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -23,7 +25,7 @@ export const AdminConcept = () => {
     setOpenModal(!openModal);
   };
 
-  const labels = labelsAdmin
+  const labels = labelsAdmin;
 
   const data = [
     {
@@ -33,7 +35,7 @@ export const AdminConcept = () => {
     {
       name: "Administración",
       status: "Activo",
-    }
+    },
   ];
   const actions = [
     {
@@ -51,6 +53,9 @@ export const AdminConcept = () => {
   return (
     <>
       <div className={styles.container}>
+      <div className={styles.containerBack} onClick={() => navigate("/")}>
+          <FaArrowLeft />
+        </div>
         <div className={styles.containerHeader}>
           <form className={styles.containerInput}>
             <input
@@ -64,22 +69,23 @@ export const AdminConcept = () => {
               <FaSearch />
             </button>
           </form>
-          <ButtonPages styles={styles} setOpenModal={setOpenModal} openModal={openModal} />
+          <div className={styles.containerButton}>
+            <button onClick={handleOpenModal} className={styles.button}>
+              Nuevo
+            </button>
+          </div>
         </div>
         <div className={styles.containerTitle}>
           <h2>Conceptos de Administración</h2>
-          <button onClick={handleOpenModal} className={styles.button}>
-            {"Nuevo +"}
-          </button>
         </div>
         <Table labels={labels} data={data} actions={actions} />
         <div className={styles.pagination}>
           <Pagination total={pagination?.count} page={page} setPage={setPage} />
         </div>
-        {
-          openModal && <ModalAdminConcept open={openModal} setOpen={setOpenModal} />
-        }
+        {openModal && (
+          <ModalAdminConcept open={openModal} setOpen={setOpenModal} />
+        )}
       </div>
     </>
   );
-}
+};

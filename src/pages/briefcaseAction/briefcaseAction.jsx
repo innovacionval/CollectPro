@@ -13,7 +13,6 @@ export const BriefcaseAction = () => {
     navigate(-1);
   };
 
- 
   const inputs = [
     {
       label: "Agrupación",
@@ -75,40 +74,49 @@ export const BriefcaseAction = () => {
       disabled: false,
     },
   ];
+
+  const inputsTemplates = [
+    {
+      label: "Tercero notificado",
+      type: "select",
+      name: "notifiedThird",
+      options: [],
+    },
+    {
+      label: "Plantilla",
+      type: "select",
+      name: "template",
+      options: [],
+    }
+  ]
   return (
     <div className={styles.container}>
       <div onClick={handleBack} className={styles.containerHeader}>
         <FaArrowLeft />
       </div>
-      <div className={styles.containerSearch}>
-        <form>
-          {inputs.map((input, index) => (
-            <div key={index} className={styles.containerInput}>
-              <label htmlFor={input.name}>{input.label}</label>
-              {input.type === "select" ? (
-                <MultipleSelect
-                  data={
-                    input.name == "group" ? [] : []
-                  }
-                  setClients={
-                    input.name == "group"
-                      ? setGroups
-                      : setStatusPaymentAgreement
-                  }
-                  clients={
-                    input.name == "group" ? groups : statusPaymentAgreement
-                  }
-                />
-              ) : (
-                <input type={input.type} name={input.name} id={input.name} />
-              )}
-            </div>
-          ))}
-          <div className={styles.containerButton}>
-            <button type="submit">Buscar</button>
+      <form className={styles.firstForm}>
+        {inputs.map((input, index) => (
+          <div key={index} className={styles.containerInput}>
+            <label htmlFor={input.name}>{input.label}</label>
+            {input.type === "select" ? (
+              <MultipleSelect
+                data={input.name == "group" ? [] : []}
+                setClients={
+                  input.name == "group" ? setGroups : setStatusPaymentAgreement
+                }
+                clients={
+                  input.name == "group" ? groups : statusPaymentAgreement
+                }
+              />
+            ) : (
+              <input type={input.type} name={input.name} id={input.name} />
+            )}
           </div>
-        </form>
-      </div>
+        ))}
+        <div className={styles.containerButton}>
+          <button type="submit">Buscar</button>
+        </div>
+      </form>
       <div className={styles.containerResult}>
         <form className={styles.rowNum1}>
           {inputsResult.map((input, index) => (
@@ -129,11 +137,50 @@ export const BriefcaseAction = () => {
               )}
             </div>
           ))}
-          <div className={styles.containerButton}>
-            <button type="submit"><FaFileDownload />
+          <div className={styles.containerButtonExcel}>
+            <button type="submit">
+              <FaFileDownload />
+            </button>
+          </div>
+          <div className={styles.containerInput}>
+            <label htmlFor="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" />
+          </div>
+        </form>
+      </div>
+      <div className={styles.containerResult}>
+        <form className={styles.rowNum1}>
+          {
+            inputsTemplates.map((input, index) => (
+              <div key={index} className={styles.containerInput}>
+                <label htmlFor={input.name}>{input.label}</label>
+                {input.type === "select" ? (
+                  <select name={input.name} id={input.name}>
+                    {input.options.map((option, index) => (
+                      <option key={index} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <input
+                    type={input.type}
+                    name={input.name}
+                    id={input.name}
+                    disabled={input.disabled}
+                  />
+                )}
+              </div>
+            ))
+          }
+          <div className={styles.containerButtonExcel}>
+            <button className={styles.btnCancel} type="submit">
+              Cancelar
+            </button>
+            <button type="submit">
+              Guardar
             </button>
           </div>
         </form>
+
       </div>
     </div>
   );
