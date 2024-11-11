@@ -12,6 +12,8 @@ import { DetailUnit } from '../pages/detailUnit/detailUnit';
 import { AdminConcept } from '@/pages/adminConcept/adminConcept';
 import { BriefcaseAction } from '@/pages/briefcaseAction/briefcaseAction';
 import { BillingConcept } from '@/pages/billingConcept/billingConcept';
+import { Template } from '@/pages/templates/templates';
+import { CreateTemplate } from '@/components/templates/createTemplate';
 
 function App() {
 
@@ -31,6 +33,8 @@ function App() {
               <Route path="/adminConcept" element={<AdminConcept/>}/>
               <Route path='/briefcase' element={<BriefcaseAction/>} />
               <Route path='/billingConcept' element={<BillingConcept/>} />
+              <Route path='/template' element={<Template/>} />
+              <Route path='/template/create' element={<CreateTemplate/>} />
             </Route>
           ) : (
             <Route path="/*" element={<Login />} />

@@ -81,6 +81,29 @@ export const labelsAdmin = [
   },
 ];
 
+export const labelsTemplates = [
+  {
+    name: "register",
+    label: "Registro",
+  },
+  {
+    name: "lastUpdate",
+    label: "Ultima actualización",
+  },
+  {
+    name: "name",
+    label: "Nombre",
+  },
+  {
+    name: "type",
+    label: "Tipo",
+  },
+  {
+    name: "actions",
+    label: "Acciones",
+  }
+]
+
 export const btnsConfig = (navigate) => [
   {
     name: "Usuarios / Perfiles",
@@ -105,6 +128,10 @@ export const btnsConfig = (navigate) => [
   {
     name: "Acciones de cartera",
     action: () => navigate("/briefcase"),
+  },
+  {
+    name: "Plantillas",
+    action: () => navigate("/template"),
   }
 
 ]
