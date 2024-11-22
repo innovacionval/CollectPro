@@ -14,6 +14,7 @@ import { BriefcaseAction } from '@/pages/briefcaseAction/briefcaseAction';
 import { BillingConcept } from '@/pages/billingConcept/billingConcept';
 import { Template } from '@/pages/templates/templates';
 import { CreateTemplate } from '@/components/templates/createTemplate';
+import { UsuryRate } from '@/pages/usuryRate/usuryRate';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
               <Route path='/billingConcept' element={<BillingConcept/>} />
               <Route path='/template' element={<Template/>} />
               <Route path='/template/create' element={<CreateTemplate/>} />
+              <Route path='/usuryRate' element={<UsuryRate/>} />
             </Route>
           ) : (
             <Route path="/*" element={<Login />} />

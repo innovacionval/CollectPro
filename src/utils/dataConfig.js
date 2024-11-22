@@ -104,6 +104,25 @@ export const labelsTemplates = [
   }
 ]
 
+export const labelsUsuryRate = [
+  {
+    name: "register",
+    label: "Registro",
+  },
+  {
+    name: "percentage",
+    label: "Porcentaje",
+  },
+  {
+    name: "applyDate",
+    label: "Aplica desde",
+  },
+  {
+    name: "actions",
+    label: "Acciones",
+  }
+]
+
 export const btnsConfig = (navigate) => [
   {
     name: "Usuarios / Perfiles",
@@ -132,6 +151,10 @@ export const btnsConfig = (navigate) => [
   {
     name: "Plantillas",
     action: () => navigate("/template"),
+  },
+  {
+    name: "Tasa de usura",
+    action: () => navigate("/usuryRate"),
   }
 
 ]

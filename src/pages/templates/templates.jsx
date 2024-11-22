@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "./templates.module.scss";
 import { Table } from "@/components/table/table";
 import { Pagination } from "@/components/pagination/Pagination";
-import { ModalManagement } from "@/components/management/modal/modal";
 
 export const Template = () => {
 
