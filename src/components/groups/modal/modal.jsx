@@ -144,9 +144,8 @@ export const ModalGroups = ({ open, setOpen }) => {
     {
       name: "taxValue",
       label: "Cálculo intereses",
-      type: "number",
+      type: "radio",
     },
-    
   ];
 
   const labelHonorarium = [
@@ -154,22 +153,40 @@ export const ModalGroups = ({ open, setOpen }) => {
       label: "Dias de mora",
       name: "days",
       placeholder1: "Valor mínimo",
-      placeholder2: "Valor máximo"
+      placeholder2: "Valor máximo",
     },
     {
       label: "Honorarios(%)",
       name: "honorarium",
       placeholder1: "%",
-      placeholder2: "%"
+      placeholder2: "%",
     },
     {
       label: "IVA honorarios (%)",
       name: "honorariumIva",
       placeholder1: "%",
-      placeholder2: "%"
-    }
+      placeholder2: "%",
+    },
+  ];
 
-  ]
+  const inputInfoAdministrator = [
+    {
+      label: "Nombre",
+      name: "nameAdmin",
+    },
+    {
+      label: "Teléfono",
+      name: "phoneAdmin",
+    },
+    {
+      label: "Correo",
+      name: "emailAdmin",
+    },
+    {
+      label: "Nº Contrato",
+      name: "contractAdmin",
+    },
+  ];
 
   const {
     handleSubmit,
@@ -204,7 +221,12 @@ export const ModalGroups = ({ open, setOpen }) => {
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           {inputs.map((input, index) => (
-            <div key={index} className={styles.containerInput}>
+            <div
+              key={index}
+              className={`${
+                input.type == "radio" ? styles.containerInputSpan2 : ""
+              } ${styles.containerInput}`}
+            >
               <label htmlFor={input.name}>{input.label}</label>
               {input.type === "select" ? (
                 <select {...register(input.name)} id={input.name}>
@@ -214,6 +236,37 @@ export const ModalGroups = ({ open, setOpen }) => {
                     </option>
                   ))}
                 </select>
+              ) : input.type === "radio" ? (
+                <div className={styles.containerRadioInput}>
+                  <div className={styles.containerRadio}>
+                    <div className={styles.inputRadio}>
+                      <input
+                        {...register(input.name)}
+                        type="radio"
+                        id="taxValue1"
+                        value="Si"
+                      />
+                      <label htmlFor="taxValue1">Tasa de usura</label>
+                    </div>
+                    <div className={styles.inputRadio}>
+                      <input
+                        {...register(input.name)}
+                        type="radio"
+                        id="taxValue2"
+                        value="No"
+                      />
+                      <label htmlFor="taxValue2">
+                        Tasa definida por el conjunto
+                      </label>
+                    </div>
+                  </div>
+                  <input
+                    {...register("taxValue3")}
+                    type="text"
+                    id="taxValue3"
+                    style={{ borderColor: "#EB625E" }}
+                  />
+                </div>
               ) : (
                 <input
                   {...register(input.name)}
@@ -224,79 +277,99 @@ export const ModalGroups = ({ open, setOpen }) => {
             </div>
           ))}
         </form>
-          <div className={styles.containerAdministrator}>
-            <div className={styles.administrator}>
-              <div className={styles.containerInput}>
-                <label>Concepto de administración</label>
-                <select
-                  {...register("administration", {
-                    onChange: (e) => setValue("administration", e.target.value),
+        <div className={styles.containerAdministrator}>
+          <div className={styles.administrator}>
+            <div className={styles.containerInput}>
+              <label>Concepto de administración</label>
+              <select
+                {...register("administration", {
+                  onChange: (e) => setValue("administration", e.target.value),
+                })}
+                id="administration"
+              >
+                <option value="Administración 1">Administración 1</option>
+                <option value="Administración 2">Administración 2</option>
+                <option value="Administración 3">Administración 3</option>
+                <option value="Administración 4">Administración 4</option>
+              </select>
+            </div>
+            <div className={styles.containerInput}>
+              <label>Tipo de valor</label>
+              <select
+                {...register("typeValue", {
+                  onChange: (e) => setValue("typeValue", e.target.value),
+                })}
+                id="typeValue"
+              >
+                <option value="Fijo">Valor coeficiente</option>
+                <option value="Variable">Valor fijo</option>
+                <option value="Porcentaje">Valor personalizable</option>
+              </select>
+            </div>
+            <div className={styles.containerInput}>
+              <label>Valor</label>
+              <div className={styles.containerValue}>
+                <input
+                  {...register("value", {
+                    onChange: (e) => setValue("value", e.target.value),
                   })}
-                  id="administration"
-                >
-                  <option value="Administración 1">Administración 1</option>
-                  <option value="Administración 2">Administración 2</option>
-                  <option value="Administración 3">Administración 3</option>
-                  <option value="Administración 4">Administración 4</option>
-                </select>
-              </div>
-              <div className={styles.containerInput}>
-                <label>Valor</label>
-                <div className={styles.containerValue}>
-                  <input
-                    {...register("value", {
-                      onChange: (e) => setValue("value", e.target.value),
-                    })}
-                    type="number"
-                    id="value"
-                  />
-                  <FaPlus onClick={handleAdminValue} />
-                </div>
+                  type="number"
+                  id="value"
+                />
+                <FaPlus onClick={handleAdminValue} />
               </div>
             </div>
-            <div className={styles.containerAdminValue}>
-              {adminValueData.map((data, index) => (
-                <div key={index} className={styles.adminValue}>
-                  <p>{data.administrator}</p>
-                  <p>{convertCurrency(data.value)}</p>
-                  <div className={styles.actions}>
-                    <FaRegEdit />
-                    <IoMdClose />
-                  </div>
+          </div>
+          <div className={styles.containerAdminValue}>
+            {adminValueData.map((data, index) => (
+              <div key={index} className={styles.adminValue}>
+                <p>{data.administrator}</p>
+                <p>{convertCurrency(data.value)}</p>
+                <div className={styles.actions}>
+                  <FaRegEdit />
+                  <IoMdClose />
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-          <div className={styles.containerHonorarium}>
-            <h3>% Honorarios</h3>
-            <div className={styles.containerInputHonorarium}>
-              {
-                labelHonorarium.map((label, index) => (
-                  <div key={index} className={styles.containerInput}>
-                    <label htmlFor={label.name}>{label.label}</label>
-                    <input
-                      {...register(`${label.name}1`)}
-                      type="number"
-                      id={label.name}
-                      placeholder={label.placeholder1}
-                    />
-                  </div>
-                ))
-              }
-              {
-                labelHonorarium.map((label, index) => (
-                  <div key={index} className={styles.containerInput}>
-                    <input
-                      {...register(`${label.name}2`)}
-                      type="number"
-                      id={label.name}
-                      placeholder={label.placeholder2}
-                    />
-                  </div>
-                ))
-              }
-            </div>
+        </div>
+        <div className={styles.containerInfoAdministrator}>
+          <h3>Información del administrador</h3>
+          <div className={styles.containerInputs}>
+            {inputInfoAdministrator.map((input, index) => (
+              <div key={index} className={styles.containerInput}>
+                <label htmlFor={input.name}>{input.label}</label>
+                <input {...register(input.name)} type="text" id={input.name} />
+              </div>
+            ))}
           </div>
+        </div>
+        <div className={styles.containerHonorarium}>
+          <h3>% Honorarios</h3>
+          <div className={styles.containerInputHonorarium}>
+            {labelHonorarium.map((label, index) => (
+              <div key={index} className={styles.containerInput}>
+                <label htmlFor={label.name}>{label.label}</label>
+                <input
+                  {...register(`${label.name}1`)}
+                  type="number"
+                  id={label.name}
+                  placeholder={label.placeholder1}
+                />
+              </div>
+            ))}
+            {labelHonorarium.map((label, index) => (
+              <div key={index} className={styles.containerInput}>
+                <input
+                  {...register(`${label.name}2`)}
+                  type="number"
+                  id={label.name}
+                  placeholder={label.placeholder2}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
         <div className={styles.containerButton}>
           <button type="button" onClick={() => setOpen(false)}>
             Cancelar
