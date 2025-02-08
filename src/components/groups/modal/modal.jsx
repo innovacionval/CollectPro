@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export const ModalGroups = ({ open, setOpen }) => {
   const [adminValueData, setAdminValueData] = useState([]);
+  const [honorariumData, setHonorariumData] = useState([]);
   const inputs = [
     {
       name: "name",
@@ -151,15 +152,18 @@ export const ModalGroups = ({ open, setOpen }) => {
   const labelHonorarium = [
     {
       label: "Dias de mora",
-      name: "days",
+      name: "daysMin",
       placeholder1: "Valor mínimo",
-      placeholder2: "Valor máximo",
+    },
+    {
+      label: "invisible",
+      name: "daysMax",
+      placeholder1: "Valor máximo",
     },
     {
       label: "Honorarios(%)",
       name: "honorarium",
       placeholder1: "%",
-      placeholder2: "%",
     },
     {
       label: "IVA honorarios (%)",
@@ -206,6 +210,18 @@ export const ModalGroups = ({ open, setOpen }) => {
       {
         administrator: getValues("administration"),
         value: getValues("value"),
+      },
+    ]);
+  };
+
+  const handleHonorarium = () => {
+    setHonorariumData([
+      ...honorariumData,
+      {
+        daysMin: getValues("daysMin"),
+        daysMax: getValues("daysMax"),
+        honorarium: getValues("honorarium"),
+        honorariumIva: getValues("honorariumIva"),
       },
     ]);
   };
@@ -349,26 +365,40 @@ export const ModalGroups = ({ open, setOpen }) => {
           <div className={styles.containerInputHonorarium}>
             {labelHonorarium.map((label, index) => (
               <div key={index} className={styles.containerInput}>
-                <label htmlFor={label.name}>{label.label}</label>
+                <label
+                  className={label.label == "invisible" ? styles.invisible : ""}
+                  htmlFor={label.name}
+                >
+                  {label.label}
+                </label>
                 <input
-                  {...register(`${label.name}1`)}
+                  {...register(`${label.name}`)}
                   type="number"
                   id={label.name}
                   placeholder={label.placeholder1}
                 />
               </div>
             ))}
-            {labelHonorarium.map((label, index) => (
-              <div key={index} className={styles.containerInput}>
-                <input
-                  {...register(`${label.name}2`)}
-                  type="number"
-                  id={label.name}
-                  placeholder={label.placeholder2}
-                />
-              </div>
-            ))}
+            <div className={styles.containerInput}>
+              <label className={styles.invisible}>invisible</label>
+              <FaPlus onClick={handleHonorarium} />
+            </div>
           </div>
+        </div>
+        <div className={styles.containerHonorariumValue}>
+          {honorariumData.map((data, index) => (
+            <div key={index} className={styles.adminValue}>
+              <p>
+                {data.daysMin}
+              </p>
+              <p>{data.daysMax}</p>
+              <p>{data.honorarium}%</p>
+              <p>{data.honorariumIva}%</p>
+              <div className={styles.actions}>
+                  <IoMdClose />
+                </div>
+            </div>
+          ))}
         </div>
         <div className={styles.containerButton}>
           <button type="button" onClick={() => setOpen(false)}>

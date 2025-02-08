@@ -43,11 +43,7 @@ export const UsuryRate = () => {
       icon: <FiEdit />,
       action: (id) => console.log("Editar", id),
     },
-    {
-      name: "delete",
-      icon: <IoMdClose />,
-      action: (id) => console.log("Eliminar", id),
-    },
+
   ];
   return (
     <>

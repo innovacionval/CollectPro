@@ -41,7 +41,7 @@ export const Users = () => {
       identification: "123456789",
       email: "asd",
       rol: "Admin",
-      status: "Activo",
+      status: "Inactivo",
     },
   ];
   const actions = [

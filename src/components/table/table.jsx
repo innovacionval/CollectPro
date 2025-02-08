@@ -30,7 +30,7 @@ export const Table = ({labels, data, actions}) => {
                     }
                     if (key == 'status') {
                       console.log(item)
-                      return <td key={index} className={item[key] == "Vigente" ? styles.active : styles.inactive}>{item[key]}</td>
+                      return <td key={index} className={item[key] == "Vigente" || item[key] == "Activo" ? styles.active : styles.inactive}>{item[key]}</td>
                     }
                     if(key == 'logo') {
                       return <td key={index}>
@@ -58,7 +58,7 @@ export const Table = ({labels, data, actions}) => {
                   {
                     actions.map((action, index) => {
                       if (action.name === 'switch') {
-                        return <Switch key={`${index} + $`} isOn={item.statusUser || item.status || item.active  || item.status =="Vigente"} handleToggle={() => action.action(item.id)} id={item.id} />;
+                        return <Switch key={`${index} + $`} isOn={item.statusUser || item.status || item.active  || item.status =="Vigente" || item.status == "Activo"} handleToggle={() => action.action(item.id)} id={item.id} />;
                       }
                       return (
                         <button className={styles.action} key={index} onClick={() => action.action(item.id)}>
