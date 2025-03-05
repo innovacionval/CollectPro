@@ -41,13 +41,13 @@ export const Sidebar = ({sections, setSections}) => {
           </div>
           <div className={styles.columnsInfo}>
             <p>Capital(Sin Dcto)</p>
-            <span>$ 0</span>
+            <span>$ 203.690</span>
             <p>Interés Mora</p>
-            <span>$ 0</span>
+            <span>$ 50.000</span>
             <p>Honorarios</p>
-            <span>$ 0</span>
+            <span>$ 120.000</span>
             <p>DTO hasta</p>
-            <span>$ 0</span>
+            <span>$ 40.000</span>
           </div>
           <div className={styles.responsible}>
             <h4>Responsable Cartera</h4>
