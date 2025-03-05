@@ -49,7 +49,7 @@ export const Simulator = () => {
 
   const parsedCop = (value, number=false) => {
     if (value.some((element) => typeof element !== "string"))
-      return "Error: Solo se permite cadena de texto";
+      return 0;
     const newValue = value.map((element) =>
       parseInt(element.replace(/\D/g, ""))
     );
@@ -154,14 +154,14 @@ export const Simulator = () => {
         <h3>$ 20.000</h3>
         <h3>$ 20.000</h3>
         <h3 className={styles.total}>SALDO TOTAL DESPUÉS DE ACUERDO</h3>
-        <h3>{honorarios.nuevoSaldo}</h3>
+        <h3>{honorarios.nuevoSaldo == 0 ? "$ 0" : honorarios.nuevoSaldo}</h3>
         <h3>{
           new Intl.NumberFormat("es-CO", {
             style: "currency",
             currency: "COP",
             maximumFractionDigits: 0,
           }).format(parsedCop([valor],true) * (53690/total))
-          }</h3>
+          } </h3>
         <h3>{
           new Intl.NumberFormat("es-CO", {
             style: "currency",
