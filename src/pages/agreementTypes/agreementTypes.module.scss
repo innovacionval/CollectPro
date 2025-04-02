@@ -9,7 +9,6 @@
   gap: 20px;
   padding: 2.5rem;
   box-sizing: border-box;
-  
 
   h2 {
     text-align: start;
@@ -18,10 +17,32 @@
     color: $darkgray;
     font-weight: 400;
   }
+  .containerTitle {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    button {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background-color: $mediumred;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 5px 20px;
+      box-sizing: border-box;
+      cursor: pointer;
+      width: fit-content;
+      flex-wrap: nowrap;
+      font-size: 1.2rem;
+    }
+  }
 
   .containerHeader {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
     margin-bottom: 20px;
 
@@ -97,19 +118,12 @@
   }
   .containerBack {
     display: flex;
-    align-items: center;
-    justify-content: end;
+    justify-content: start;
     width: 100%;
-    .backbtn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      background-color: $darkgray;
-      color: white;
-      border: none;
-      border-radius: 15px;
-      padding: 5px 10px;
+    svg {
       cursor: pointer;
+      font-size: 1.5rem;
+      color: $darkred;
     }
   }
 }

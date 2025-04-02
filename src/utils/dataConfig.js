@@ -123,6 +123,48 @@ export const labelsUsuryRate = [
   }
 ]
 
+export const labelsMoneyLocation = [
+  {
+    name: "name",
+    label: "Nombre",
+  },
+  {
+    name: "type",
+    label: "Tipo",
+  },
+  {
+    name: "status",
+    label: "Estado",
+  },
+  {
+    name: "actions",
+    label: "Acciones",
+  }
+]
+
+export const labelsAgreementTypes = [
+  {
+    name: "title",
+    label: "Título",
+  },
+  {
+    name: "detail",
+    label: "Detalle",
+  },
+  {
+    name: "register",
+    label: "Registro",
+  },
+  {
+    name: "status",
+    label: "Estado",
+  },
+  {
+    name: "actions",
+    label: "Acciones",
+  }
+]
+
 export const btnsConfig = (navigate) => [
   {
     name: "Usuarios / Perfiles",

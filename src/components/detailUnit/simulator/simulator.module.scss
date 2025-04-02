@@ -31,8 +31,9 @@
         label{
           font-size: 1.4em;
         }
+        
 
-        input{
+        input,select{
           border: none;
           background-color: $lightred;
           border-radius: 20px;
@@ -147,7 +148,7 @@
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
           }
-          &:nth-child(5){
+          &:last-child{
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
           }
@@ -164,6 +165,11 @@
         padding: 10px 0;
         border-bottom: 3px solid $lighgray;
         box-sizing: border-box;
+      }
+      .actions{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
       }
     }
   }

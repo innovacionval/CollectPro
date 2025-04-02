@@ -1,30 +1,32 @@
 import { useState } from "react";
 import styles from "./collection.module.scss";
 import { ModalCollection } from "./modal/modal";
+import { FaEye } from "react-icons/fa";
 export const Collection = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const labels = [
     "Pago",
-    "Fecha",
+    "Fecha de registro",
     "Valor",
-    "Moneda",
-    "Empleado",
+    "Usuario",
     "Aplicación",
-    "Capital",
-    "Vencido",
-    "Intereses",
-    "Mora",
+    "Capital Vencido",
+    "Intereses de Mora",
     "Honorarios",
-    "Otros",
-    "Favor",
+    "Acciones"
   ];
   const data = [
     {
       payment: "RECIBO CAJA: 000000",
       date: "10/10/2024",
       value: "$ 0",
-      currency: "COP",
+      user:"",
+      application:"",
+      capital:"",
+      interests:"",
+      fees:"",
+      options: <FaEye />
     },
   ]
   return (
@@ -48,7 +50,13 @@ export const Collection = () => {
                 <td>{item.payment}</td>
                 <td>{item.date}</td>
                 <td>{item.value}</td>
-                <td>{item.currency}</td>
+                <td>{item.user}</td>
+                <td>{item.application}</td>
+                <td>{item.capital}</td>
+                <td>{item.interests}</td>
+                <td>{item.fees}</td>
+                <td>{item.options}</td>
+                {/* <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -56,8 +64,7 @@ export const Collection = () => {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td></td> */}
               </tr>
             ))}
           </tbody>

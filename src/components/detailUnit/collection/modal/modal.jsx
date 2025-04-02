@@ -2,6 +2,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import styles from "./modal.module.scss";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { FaUpload } from "react-icons/fa";
 
 export const ModalCollection = ({ setOpen }) => {
   const [openForm, setOpenForm] = useState(false);
@@ -9,46 +10,47 @@ export const ModalCollection = ({ setOpen }) => {
 
   const inputs = [
     {
-      name: "reason",
-      label: "Motivo",
-      type: "text",
-    },
-    {
-      name: "employee",
-      label: "Empleado",
-      type: "select",
-      options: [
-        {
-          value: "Empleado 1",
-          label: "Empleado 1",
-        },
-        {
-          value: "Empleado 2",
-          label: "Empleado 2",
-        },
-        {
-          value: "Empleado 3",
-          label: "Empleado 3",
-        },
-        {
-          value: "Empleado 4",
-          label: "Empleado 4",
-        },
-      ],
-    },
-    {
-      name: "date",
-      label: "Fecha de recaudo",
+      name: "datePayment",
+      label: "Fecha de Pago",
       type: "date",
     },
     {
       name: "observation",
       label: "Observación",
+      type: "textarea",
+    },
+    {
+      name: "moneyLocation",
+      label: "Ubicación de dinero",
+      type: "select",
+      options: [
+        { label: "Banco", value: "Banco" },
+        { label: "Caja", value: "Caja" },
+        { label: "Otros", value: "Otros" },
+      ],
+    },
+    {
+      name: "paymentMethod",
+      label: "Forma de pago",
+      type: "select",
+      options: [
+        { label: "Consignación", value: "Efectivo" },
+        { label: "Transferencia", value: "Transferencia" },
+        { label: "Efectivo", value: "Efectivo" },
+        { label: "Plataforma", value: "Plataforma" },
+      ],
+    },
+    {
+      name: "concept",
+      label: "Concepto",
       type: "text",
     },
+    {
+      name: "value",
+      label: "Valor",
+      type: "number",
+    },
   ];
-
-  
 
   const { fields, append, remove } = useFieldArray({
     control: control,
@@ -89,6 +91,12 @@ export const ModalCollection = ({ setOpen }) => {
                     </option>
                   ))}
                 </select>
+              ) : input.type == "textarea" ? (
+                <textarea
+                  {...register(input.name)}
+                  id={input.name}
+                  rows="4"
+                ></textarea>
               ) : (
                 <input
                   {...register(input.name)}
@@ -100,14 +108,13 @@ export const ModalCollection = ({ setOpen }) => {
           ))}
         </form>
         <div className={styles.containerButton}>
-          <button type="button" onClick={() => setOpen(false)}>
-            Cancelar
-          </button>
-          <button onClick={handleInputOutput} type="submit">
-            Agregar Entrada/Salida Dinero
-          </button>
+          <label className={styles.button}>
+            <FaUpload size={16} />
+            <span>Adjuntar comprobante de pago</span>
+            <input type="file" className={styles.hiddenInput} />
+          </label>
         </div>
-        {openForm &&
+        {/* {openForm &&
           fields.map((field, index) => (
             <form key={index} onSubmit={handleSubmit(onSubmit)}>
               <div className={styles.containerInputOutput}>
@@ -142,10 +149,10 @@ export const ModalCollection = ({ setOpen }) => {
                 </div>
               </div>
             </form>
-          ))}
-          <div className={styles.containerButtonSave}>
-            <button type="submit">Realizar</button>
-          </div>
+          ))} */}
+        <div className={styles.containerButtonSave}>
+          <button type="submit">Realizar</button>
+        </div>
       </div>
     </div>
   );

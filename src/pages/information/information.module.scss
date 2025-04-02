@@ -1,5 +1,4 @@
 @import "styles/colors.scss";
-
 .container {
   display: flex;
   flex-direction: column;
@@ -9,7 +8,17 @@
   gap: 20px;
   padding: 2.5rem;
   box-sizing: border-box;
-  
+
+  .containerBack {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    svg {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: $darkred;
+    }
+  }
 
   h2 {
     text-align: start;
@@ -24,26 +33,8 @@
     justify-content: space-between;
     width: 100%;
     margin-bottom: 20px;
+    border-bottom: 2px solid $mediumred;
 
-    .containerInput {
-      display: flex;
-      gap: 10px;
-      input {
-        border-radius: 20px;
-        border: 1px solid #ccc;
-        padding: 5px 5px 5px 10px;
-        font-size: larger;
-      }
-      button {
-        width: 60px;
-        border: none;
-        border-radius: 20px;
-        padding: 5px 10px;
-        background-color: $darkgray;
-        color: white;
-        cursor: pointer;
-      }
-    }
     .containerButton {
       display: flex;
       align-items: center;
@@ -95,21 +86,40 @@
       }
     }
   }
-  .containerBack {
+  .containerBody{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     width: 100%;
-    .backbtn {
+    gap: 5px;
+    box-sizing: border-box;
+
+    .card{
       display: flex;
       align-items: center;
-      gap: 5px;
-      background-color: $darkgray;
-      color: white;
-      border: none;
-      border-radius: 15px;
-      padding: 5px 10px;
-      cursor: pointer;
+      justify-content: space-between;
+      width: 100%;
+      background-color: $lighgray;
+      box-sizing: border-box;
+      padding: 0.5rem 1rem;
+
+      .options{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        svg{
+          cursor: pointer;
+          font-size: 1.5rem;
+        }
+      }
+
+      h3{
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
     }
   }
 }

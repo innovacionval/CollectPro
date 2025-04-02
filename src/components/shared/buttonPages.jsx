@@ -8,13 +8,13 @@ export const ButtonPages = ({styles, setOpenModal, openModal}) => {
   const handleOpenModal = () => {
     setOpenModal(!openModal);
   };
-  const handleOpen = () => {
-    setOpenMenu(!openMenu);
+  const handleConfig = () => {
+    navigate("/configuration")
   };
 
   return (
     <div className={styles.containerButton}>
-            <button onClick={handleOpen} className={styles.btnConfig}>
+            <button onClick={handleConfig} className={styles.btnConfig}>
               Configuración
               <div
                 className={`${styles.containerMenu} ${
@@ -30,7 +30,7 @@ export const ButtonPages = ({styles, setOpenModal, openModal}) => {
                 }
               </div>
             </button>
-            <button onClick={() => {}} className={styles.button}>
+            <button onClick={() => {navigate("/information")}} className={styles.button}>
               Informes
             </button>
             <button onClick={handleOpenModal} className={styles.button}>

@@ -87,33 +87,7 @@ export const Unit = () => {
               <FaSearch />
             </button>
           </form>
-          <div className={styles.containerButton}>
-            <button onClick={handleOpen} className={styles.btnConfig}>
-              Configuración
-              <div
-                className={`${styles.containerMenu} ${
-                  openMenu ? styles.active : ""
-                }`}
-              >
-                <button onClick={() => navigate("/users")}>
-                  Usuarios / Perfiles
-                </button>
-                <button onClick={() => navigate("/")}>Agrupaciones</button>
-                <button onClick={() => navigate("/import")}>
-                  Importadores
-                </button>
-                <button onClick={() => navigate("/management")}>
-                  Tipos de gestión
-                </button>
-              </div>
-            </button>
-            <button onClick={() => {}} className={styles.button}>
-              Informes
-            </button>
-            <button onClick={handleOpenModal} className={styles.button}>
-              Crear
-            </button>
-          </div>
+          
         </div>
         <h2>Unidades</h2>
         <Table labels={labels} data={data} actions={actions} />

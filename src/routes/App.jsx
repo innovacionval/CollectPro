@@ -15,6 +15,10 @@ import { BillingConcept } from '@/pages/billingConcept/billingConcept';
 import { Template } from '@/pages/templates/templates';
 import { CreateTemplate } from '@/components/templates/createTemplate';
 import { UsuryRate } from '@/pages/usuryRate/usuryRate';
+import { Configuration } from '@/pages/configuration/configuration';
+import { Information } from '@/pages/information/information';
+import { MoneyLocation } from '@/pages/moneyLocation/moneyLocation';
+import { AgreementTypes } from '@/pages/agreementTypes/agreementTypes';
 
 function App() {
 
@@ -37,6 +41,10 @@ function App() {
               <Route path='/template' element={<Template/>} />
               <Route path='/template/create' element={<CreateTemplate/>} />
               <Route path='/usuryRate' element={<UsuryRate/>} />
+              <Route path='/configuration' element={<Configuration/>} />
+              <Route path='/information' element={<Information/>} />
+              <Route path='/agreementTypes' element={<AgreementTypes/>} />
+              <Route path='/moneyLocation' element={<MoneyLocation/>} />
             </Route>
           ) : (
             <Route path="/*" element={<Login />} />

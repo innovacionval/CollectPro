@@ -81,7 +81,7 @@ export const Sidebar = ({sections, setSections}) => {
               collection: false
             })
           }} className={`${styles.btn} ${sections.simulator ? styles.active : ''}`}>
-            Simulador
+            Acuerdos de pago
           </button>
           <button onClick={() => {
             setSections({
